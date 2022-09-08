@@ -1,106 +1,53 @@
 @use '../GeneralStyles/Styles'
 
-.LoginBody 
-  display: flex
-  flex-direction: column
-  flex-wrap: nowrap
-  justify-content: center
-  align-items: center
-  align-content: stretch
-  
+.BookingBody
+  @include Styles.w-h($width: 100%, $height: 100%)
+  @include Styles.flex($direction: column, $justify: center, $items: flex-start)
+  padding: 20px 30px
 
-.TextSign 
-  flex-grow: 0
-  flex-shrink: 1
-  flex-basis: auto
-  align-self: auto
-  order: 0
-  color: Styles.$font-color-focus
-  font-size: 25px
-  top: 60px
-  right: 150px
+.BookingBodyContainer
+  @include Styles.w-h($width: 100%, $height: 90%)
+  @include Styles.flex($direction: column, $justify: space-between, $items: center)
 
-.inputName
+.BookingResume
+  @include Styles.w-h($width: 100%, $height: 50px)
+  margin-top: 20px
 
-  flex-grow: 0
-  flex-shrink: 1
-  flex-basis: auto
-  align-self: auto
-  order: 0
-  width: 370px
-  left: 20px
-  border-width: 1px
-  top: 100px
-  
-.inputEmail
-  flex-grow: 0
-  flex-shrink: 1
-  flex-basis: auto
-  align-self: auto
-  order: 0
-  width: 370px
-  left: 20px
-  border-width: 1px
-  top: 150px
+.BookingResumeContainer
+  @include Styles.w-h($width: 100%, $height: 100%)
+  @include Styles.flex($direction: row, $justify: space-between, $items: center)
 
-.inputPass
-  flex-grow: 0
-  flex-shrink: 1
-  flex-basis: auto
-  align-self: auto
-  order: 0
-  width: 370px
-  left: 20px
-  border-width: 1px
-  top: 200px
+.InputText
+  font-size: 40px
+  font-weight: 700
+  color: black
+  margin-bottom: 50px
 
+.InputField
 
-  .ButtonSign
-   
-    background-color: 'rgba(92, 99,216, 1)'
-    border-color: 'transparent'
-    border-width: 0
-    border-radius: 5
+  @include Styles.w-h($width: 100%, $height: 300px)
 
-  .ButtonSignWithG
-    
-    background-color: 'rgba(92, 99,216, 1)'
-    border-color: 'transparent'
-    border-width: 0
-    border-radius: 5
+.CityRight
+  @include Styles.flex($direction: column, $justify: center, $items: flex-end)
 
-// .flex-items:nth-child(6) {
-//   display: block;
-//   flex-grow: 0;
-//   flex-shrink: 1;
-//   flex-basis: auto;
-//   align-self: auto;
-//   order: 0;
-// }
+.PlaceWidth
+  width: 100px
 
-.FirstName
-    padding: 0px
-    margin: 0px
-    top: 100px
-    left: 25px
-    font-size: 17px   
-.Email
-    padding: 0px
-    margin: 0px
-    top: 75px
-    left: 25px
-    font-size: 17px 
-.Password
-    padding: 0px
-    margin: 0px
-    top: 120px
-    left: 25px
-    font-size: 17px
-.Require
-   padding: 0px
-    margin: 0px
-    top: 180px
-    left: 25px
-    font-size: 8px             
+.PlaceCity
+  font-size: 20
+  font-weight: 700
+  color: black
 
-    
+.NextButton
+  @include Styles.w-h($width: 100%, $height: 40px)
+  @include Styles.flex($direction: column, $justify: center, $items: center)
+  background: Styles.$font-color-disabled
+  border-radius: 10px
+
+.NextButtonText
+  color: white
+  font-size: 15
+
+.Date
+  color: black
+  font-weight: 700
