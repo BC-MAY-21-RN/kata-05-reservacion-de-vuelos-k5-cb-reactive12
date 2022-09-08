@@ -7,15 +7,18 @@
 
 .BookingBodyContainer
   @include Styles.w-h($width: 100%, $height: 90%)
-  @include Styles.flex($direction: column, $justify: space-between, $items: center)
+  @include Styles.flex($direction: column, $justify: center, $items: center)
 
 .BookingResume
   @include Styles.w-h($width: 100%, $height: 50px)
-  margin-top: 20px
+  margin-bottom: 30px
 
 .BookingResumeContainer
   @include Styles.w-h($width: 100%, $height: 100%)
   @include Styles.flex($direction: row, $justify: space-between, $items: center)
+
+.RenderSwitchResume
+  margin-bottom: 20px
 
 .InputText
   font-size: 40px
@@ -32,6 +35,7 @@
 
 .PlaceWidth
   width: 100px
+  text-overflow: ellipsis
 
 .PlaceCity
   font-size: 20
@@ -43,10 +47,6 @@
   @include Styles.flex($direction: column, $justify: center, $items: center)
   background: Styles.$font-color-disabled
   border-radius: 10px
-
-.NextButtonText
-  color: white
-  font-size: 15
 
 .Date
   color: black
