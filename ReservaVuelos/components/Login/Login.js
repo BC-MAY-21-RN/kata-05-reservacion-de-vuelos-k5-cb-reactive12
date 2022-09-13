@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, SafeAreaView, TextInput, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Alert} from 'react-native';
 import Appstyles from './Login.sass'
 import {CheckBox, Button, Icon} from '@rneui/themed';
 import {NavigationContainer} from '@react-navigation/native';
@@ -24,12 +24,12 @@ export default function Login(props) {
   const handleCreateAcount = () =>{
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential)=>{
-      alert('Acount created!')
+      Alert.alert('Acount created!')
       const user = userCredential.user;
-      console.log(user)
+      Alert.alert(user)
     })
     .catch(error => {
-      console.log(error)
+      Alert.alert(error)
     })
   }
   const handleSignIn = () =>{
@@ -37,10 +37,10 @@ export default function Login(props) {
     .then((userCredential)=>{
       alert('Signed in!')
       const user = userCredential.user;
-      console.log(user)
+      Alert.alert(user)
     })
     .catch(error => {
-      console.log(error)
+      Alert.alert(error)
     })
   }
   const handlePasswordChange = (value) => {
@@ -137,7 +137,6 @@ export default function Login(props) {
             title="Register"
             color="blue"
             onPress={handleCreateAcount}
-            //onPress={() => props.navigation.navigate('Home')
           />
         </View>
         <View style={Appstyles.ButtonSignContainer}>

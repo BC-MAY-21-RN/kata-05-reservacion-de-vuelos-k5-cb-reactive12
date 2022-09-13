@@ -112,7 +112,6 @@ export default function App(props) {
           style={[
             Appstyles.BookingResumeContainer,
             {
-              //display: 'none',
               borderBottomColor: 'gray',
               borderBottomWidth: StyleSheet.hairlineWidth,
             },
@@ -159,7 +158,6 @@ export default function App(props) {
               setScreen(screen + 1);
               inputFilled = false;
             }}
-            //disabled={!inputFilled}
           ></Button>
         ) : (
           <Button
@@ -169,7 +167,6 @@ export default function App(props) {
               setScreen(screen + 1);
               inputFilled = false;
             }}
-            //disabled={!inputFilled}
           ></Button>
         )}
       </View>
