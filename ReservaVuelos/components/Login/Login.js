@@ -1,28 +1,50 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, View, StyleSheet, SafeAreaView, TextInput, Button} from 'react-native';
-import Appstyles from './Login.sass';
+import Appstyles from './Login.sass'
 import {CheckBox} from '@rneui/themed';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { firebaseConfig } from '../configFire/config';
+import { initializeApp } from 'firebase/app';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 
-export default function Login(props) {
+
+export default function Login() {
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
 
   const [email, setEmail] = useState("");
-  const [emailInvalido, setEmailInvalido] = useState(true);
-  const [_write, setWrite] = useState(false);
- 
-  function validEmail(_email) {
-    let invalido = true;
-    setWrite(true);
-    if (_email != "" && _email.includes('@')) {
-      invalido = false
-      setEmail(_email)
-    }
-    setEmailInvalido(invalido);
+  const [password, setPassword] = useState("");
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleCreateAcount = () =>{
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+      alert('Acount created!')
+      const user = userCredential.user;
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
+  const handleSignIn = () =>{
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+      alert('Signed in!')
+      const user = userCredential.user;
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
+
+  
   return (
     <SafeAreaView>
       <View style={Appstyles.LoginBody}>
@@ -33,16 +55,16 @@ export default function Login(props) {
           <Text style={Appstyles.Label}>Email</Text>
           <TextInput style={Appstyles.Input}
             placeholder="Write your email"
-            onChangeText={(_email) => validEmail(_email)}
+            onChangeText={(text) => setEmail(text)}
           >{email}</TextInput>
-          {emailInvalido && _write ? <Text style={Appstyles.emailRequire}>Invalid email</Text> : null}
 
           <Text style={Appstyles.Label}>Password</Text>
           <TextInput
             style={Appstyles.InputPassword}
             placeholder="Write your password"
             secureTextEntry={true}
-          />
+            onChangeText={(text) => setPassword(text)}
+          >{password}</TextInput>
           <Text style={Appstyles.Require}>
             Use 8 or more characters with a mix of letters, numbers and simbols
           </Text>
@@ -61,12 +83,19 @@ export default function Login(props) {
             onPress={() => setCheck2(!check2)}
           />
         </View>
+        <View style={Appstyles.ButtonSignContainer}>
+          <Button
+            title="Register"
+            color="blue"
+            onPress={handleCreateAcount}
+          />
+        </View>
 
         <View style={Appstyles.ButtonSignContainer}>
           <Button
-            title="Sign Up"
-            disabled={emailInvalido}
-            onPress={() => props.navigation.navigate('Home')}
+            title="Login"
+            disabled
+            onPress={handleSignIn}
           />
         </View>
         <Text>or</Text>
