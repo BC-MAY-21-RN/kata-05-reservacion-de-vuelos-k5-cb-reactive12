@@ -14,7 +14,7 @@ function MainStack() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Login" component={Login} />
+        {/* <Stack.Screen name="Login" component={Login} /> */}
         <Stack.Screen name="Home" component={MyFlightsScreen} />
         <Stack.Screen name="Booking" component={Booking} />
       </Stack.Navigator>
