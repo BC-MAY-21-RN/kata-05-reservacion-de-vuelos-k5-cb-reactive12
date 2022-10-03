@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import MyFlightsStyles from './MyFlightsScreen.sass';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Avatar, Icon} from "@rneui/themed";
+import {Avatar, Icon} from '@rneui/themed';
 
 export default MyFlightsScreen = props => {
   return (
@@ -12,10 +12,10 @@ export default MyFlightsScreen = props => {
       <TouchableOpacity>
         <View style={MyFlightsStyles.containers}>
           <Text style={MyFlightsStyles.placeAcronyms}>BEG</Text>
-          <Icon 
-            name= 'flight'
-            type= 'material'
-            color= '#5C6DF8'
+          <Icon
+            name="flight"
+            type="material"
+            color="#5C6DF8"
             size={25}
             style={MyFlightsStyles.iconFlight}
           />
@@ -34,11 +34,11 @@ export default MyFlightsScreen = props => {
       </TouchableOpacity>
       <View style={MyFlightsStyles.containerAvatar}>
         <Avatar
-            size={64}
-            rounded
-            icon={{name: 'plus', type: 'font-awesome'}}
-            containerStyle={MyFlightsStyles.avatar}
-            onPress={() => props.navigation.navigate('Booking')}
+          size={64}
+          rounded
+          icon={{name: 'plus', type: 'font-awesome'}}
+          containerStyle={MyFlightsStyles.avatar}
+          onPress={() => props.navigation.navigate('Booking')}
         />
       </View>
     </View>

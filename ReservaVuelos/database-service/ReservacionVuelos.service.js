@@ -7,23 +7,23 @@ export const saveFlight = async (state, navigation) => {
   await db
     .collection('Viajes')
     .add({
+      uid: state.uid,
       origin: [state.fromCity, state.fromCountry],
       destiny: [state.toCity, state.toCountry],
       date: state.flightDate,
       passengers: state.passengers,
-      //uid: current.uid,
     })
     .then(() => {
       navigation.navigate('Home');
     });
 };
 
-export const getData = async () => {
+export const getData = async uid => {
   try {
     const arrayFlights = [];
     const usersQuerySnapshot = await firestore()
       .collection('Viajes')
-      //.where('uid', '==', current.uid)
+      .where('uid', '==', uid)
       .get();
     usersQuerySnapshot.forEach(documentSnapshot => {
       arrayFlights.push({id: documentSnapshot.id, ...documentSnapshot.data()});
