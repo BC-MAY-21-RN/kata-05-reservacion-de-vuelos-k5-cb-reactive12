@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -13,8 +13,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DatePicker from 'react-native-date-picker';
 import Moment from 'moment';
 import FlightClass from '../Flight.class';
+import auth from '@react-native-firebase/auth';
 
 export default function App(props) {
+  const [uid, setUID] = useState(-1);
   const [fromCountry, setFromCountry] = useState('Country1');
   const [fromCity, setFromCity] = useState('City1');
   const [toCountry, setToCountry] = useState('Country2');
@@ -25,10 +27,19 @@ export default function App(props) {
 
   let inputFilled = false;
 
+  useEffect(() => {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        setUID(user.uid);
+      }
+    });
+  }, []);
+
   function pressed() {
     setScreen(screen + 1);
     if (screen != 3 || inputFilled == false) return;
     const flight = new FlightClass(
+      uid,
       fromCity,
       fromCountry,
       toCity,
