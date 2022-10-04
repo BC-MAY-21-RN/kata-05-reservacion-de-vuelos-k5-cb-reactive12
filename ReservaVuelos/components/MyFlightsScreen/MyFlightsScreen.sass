@@ -1,5 +1,9 @@
 @use '../GeneralStyles/Styles'
 
+.Body
+    width: 100%
+    height: 100%
+
 .title
     color: #5C6DF8
     font-size: 28px
@@ -10,7 +14,7 @@
     transform: rotate(90deg)
 
 .containers
-    @include Styles.flex($direction: row, $justify: space-between, $items: center) 
+    @include Styles.flex($direction: row, $justify: space-between, $items: center)
 
 .placeAcronyms
     color: #000000
@@ -46,8 +50,9 @@
 .addFlight
     background-color: #FFFFFF
 
-.avatar
+.containerAvatar
     position: absolute
-    top: 500px
+    bottom: 50px
     left: 175px
     background-color: #5C6DF8
+    z-index: 3
