@@ -3,6 +3,7 @@ import {saveFlight} from '../database-service/ReservacionVuelos.service';
 
 export default class FlightClass extends React.Component {
   constructor(
+    uid,
     fromCity,
     fromCountry,
     toCity,
@@ -11,6 +12,7 @@ export default class FlightClass extends React.Component {
     passengers,
   ) {
     super();
+    this.uid = uid;
     this.fromCity = fromCity;
     this.fromCountry = fromCountry;
     this.toCity = toCity;

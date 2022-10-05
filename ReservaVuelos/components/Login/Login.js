@@ -14,7 +14,7 @@ import {CheckBox, Button, Icon} from '@rneui/themed';
 import {handleCreateAcount, handleSignIn} from './AuthAcount';
 import auth from '@react-native-firebase/auth';
 
-export default function Login() {
+export default function Login(props) {
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [email, setEmail] = useState('');
@@ -136,7 +136,6 @@ export default function Login() {
               onPress={() => handleCreateAcount(props, email, password)}
             />
           </View>
-
           <View style={Appstyles.ButtonSignContainer}>
             <Button
               title="Login"

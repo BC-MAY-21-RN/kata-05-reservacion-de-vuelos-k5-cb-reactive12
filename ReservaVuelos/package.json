@@ -20,6 +20,8 @@
     "@react-navigation/native-stack": "^6.8.0",
     "@rneui/base": "^0.0.0-edge.2",
     "@rneui/themed": "^0.0.0-edge.2",
+    "ansi-regex": "^6.0.1",
+    "ansi-styles": "^6.1.1",
     "eslint-config": "^0.3.0",
     "firebase": "^9.6.11",
     "moment": "^2.29.4",
@@ -33,7 +35,8 @@
     "react-native-sass-transformer": "^2.0.0",
     "react-native-screens": "^3.17.0",
     "react-native-vector-icons": "^9.2.0",
-    "sass": "^1.54.7"
+    "sass": "^1.54.7",
+    "strict-uri-encode": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
